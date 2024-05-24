@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "4db7c381-016d-4dec-ab99-f01287f6f6ab",
+		"name": "Unit-Converter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "35073854"
+	},
+	"item": [
+		{
+			"name": "Temperature",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"celsious\":\"3.5\",\r\n    \"fahrenheit\":\"2.5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9002/conversion/temp/value"
+			},
+			"response": []
+		},
+		{
+			"name": "Length",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"kiloMeter\":\"2.6\",\r\n    \"miles\":\"6.7\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9002/conversion/length/value"
+			},
+			"response": []
+		},
+		{
+			"name": "Weight",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"kiloGram\":\"9.6\",\r\n    \"pound\":\"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9002/conversion/weight/value"
+			},
+			"response": []
+		},
+		{
+			"name": "Time",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"seconds\":\"30\",\r\n    \"minnutes\":\"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9002/conversion/time/value"
+			},
+			"response": []
+		}
+	]
+}
