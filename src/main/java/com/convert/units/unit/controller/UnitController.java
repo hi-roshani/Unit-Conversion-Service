@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+
 @Slf4j
 @RestController
-public class Controller {
+public class UnitController {
 
     @Autowired
     private LengthService lengthService;
@@ -32,8 +34,12 @@ public class Controller {
     public ResponseDTO convertLength(@RequestBody LengthDTO lengthDTO) {
         ResponseDTO responseDTO = new ResponseDTO();
         log.info("converting length");
-        responseDTO.setFirstValue(Double.valueOf(lengthService.convertToKm(lengthDTO)));
-        responseDTO.setSecondValue(Double.valueOf(lengthService.convertToMiles(lengthDTO)));
+        HashMap<String, Double> hm = new HashMap<>();
+        hm.put("Kilometers",lengthService.convertToKm(lengthDTO));
+        hm.put("Miles",lengthService.convertToMiles(lengthDTO));
+        responseDTO.setResponseMetric(hm);
+//        responseDTO.setFirstValue(Double.valueOf(lengthService.convertToKm(lengthDTO)));
+//        responseDTO.setSecondValue(Double.valueOf(lengthService.convertToMiles(lengthDTO)));
         return responseDTO ;
     }
 
@@ -41,8 +47,13 @@ public class Controller {
     public ResponseDTO convertTemperature(@RequestBody TemperatureDTO temperatureDTO){
         ResponseDTO responseDTO = new ResponseDTO();
         log.info("converting temperature");
-        responseDTO.setFirstValue(Double.valueOf(temperatureService.convertToCelsious(temperatureDTO)));
-        responseDTO.setSecondValue(Double.valueOf(temperatureService.convertToFahrenheit(temperatureDTO)));
+        HashMap<String, Double> hm = new HashMap<>();
+        hm.put("Celsious",temperatureService.convertToCelsious(temperatureDTO));
+        hm.put("Fahrenheit",temperatureService.convertToFahrenheit(temperatureDTO));
+        responseDTO.setResponseMetric(hm);
+        //validation here
+//        responseDTO.setFirstValue(Double.valueOf(temperatureService.convertToCelsious(temperatureDTO)));
+//        responseDTO.setSecondValue(Double.valueOf(temperatureService.convertToFahrenheit(temperatureDTO)));
         return responseDTO;
     }
 
@@ -50,8 +61,12 @@ public class Controller {
     public ResponseDTO convertTime(@RequestBody TimeDTO timeDTO){
         ResponseDTO responseDTO = new ResponseDTO();
         log.info("converting time");
-        responseDTO.setFirstValue(timeService.convertToSeconds(timeDTO));
-        responseDTO.setSecondValue(timeService.convertToMinutes(timeDTO));
+        HashMap<String, Double> hm = new HashMap<>();
+        hm.put("Seconds",timeService.convertToSeconds(timeDTO));
+        hm.put("Minutes",timeService.convertToMinutes(timeDTO));
+        responseDTO.setResponseMetric(hm);
+        //        responseDTO.setFirstValue(timeService.convertToSeconds(timeDTO));
+        //        responseDTO.setSecondValue(timeService.convertToMinutes(timeDTO));
         return responseDTO;
     }
 
@@ -59,8 +74,12 @@ public class Controller {
     public ResponseDTO convertWeight(@RequestBody WeightDTO weightDTO){
         ResponseDTO responseDTO = new ResponseDTO();
         log.info("converting weight");
-        responseDTO.setFirstValue(weightService.convertToKilograms(weightDTO));
-        responseDTO.setSecondValue(weightService.convertToPounds(weightDTO));
+        HashMap<String, Double> hm = new HashMap<>();
+        hm.put("Kilograms",weightService.convertToKilograms(weightDTO) );
+        hm.put("Pounds", weightService.convertToPounds(weightDTO));
+        responseDTO.setResponseMetric(hm);
+//        responseDTO.setFirstValue(weightService.convertToKilograms(weightDTO));
+//        responseDTO.setSecondValue(weightService.convertToPounds(weightDTO));
         return responseDTO;
     }
 

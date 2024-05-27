@@ -4,11 +4,14 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashMap;
+
 @Getter
 @Setter
 @Data
 public class ResponseDTO {
-    private Double firstValue;
-
-    private Double secondValue;
+//    <T>
+//    String status;
+//    T response;
+   HashMap<String, Double> responseMetric;
 }
